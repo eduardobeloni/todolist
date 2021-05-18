@@ -1,0 +1,11 @@
+This simple project provides a way of learning the basics of Spring Boot framework in Java.
+You are going to need Postman to test this project.
+
+GET localhost:8080/hello to see a greeting message.
+GET localhost:8080/todos to list all the available todos.
+GET localhost:8080/todos/{id} to list a specific todo.
+POST localhost:8080/tools to add a todo in JSON format { "id": 99, "name": "Wilfried", "description": "desc", "summary": "something here"}.
+PUT localhost:8080/tools/{id} to update {id} todo in the same JSON format as above.
+DELETE localhost:8080/tools/{id} to remove {id} todo.
+
+Have fun :)
