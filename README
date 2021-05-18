@@ -8,4 +8,6 @@ POST localhost:8080/tools to add a todo in JSON format { "id": 99, "name": "Wilf
 PUT localhost:8080/tools/{id} to update {id} todo in the same JSON format as above.
 DELETE localhost:8080/tools/{id} to remove {id} todo.
 
+You don't need to worry about the database stuff. The configurations in pom.xml do the trick.
+
 Have fun :)
