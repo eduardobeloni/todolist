@@ -15,12 +15,12 @@ public class ToDoController {
 	@Autowired
 	private ToDoService toDoService;
 
-	@RequestMapping("/todos")
+	@RequestMapping(method=RequestMethod.GET, value="/todos")
 	public List<ToDo> getAllToDos() {
 		return toDoService.getAllToDos();
 	}
 	
-	@RequestMapping("/todos/{id}")
+	@RequestMapping(method=RequestMethod.GET, value="/todos/{id}")
 	public ToDo getToDo(@PathVariable Integer id) {
 		return toDoService.getToDo(id);
 	}
