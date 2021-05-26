@@ -29,4 +29,13 @@ public class HelloService {
 
 		return new User();
 	}
+
+	public User getUserByName(String name) {
+		List<User> users = userRepo.findByName(name);
+		if (!users.isEmpty()) {
+			return users.get(0);
+		}
+
+		return new User();
+	}
 }

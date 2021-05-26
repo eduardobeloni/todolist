@@ -34,4 +34,9 @@ public class HelloController {
 	public List<User> displayUsers() {
 		return helloService.getAllUsers();
 	}
+
+	@RequestMapping(method=RequestMethod.GET, value="/hello/list", params="name")
+	public User getUserByName(@RequestParam String name) {
+		return helloService.getUserByName(name);
+	}
 }
