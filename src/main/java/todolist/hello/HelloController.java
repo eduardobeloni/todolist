@@ -25,8 +25,8 @@ public class HelloController {
 	}
 
 	@RequestMapping(method=RequestMethod.POST, value="/hello/add")
-	public void addUser(@RequestParam Integer id, @RequestParam String name) {
-		helloService.addUser(new User(id, name));
+	public void addUser(@RequestParam String name) {
+		helloService.addUser(new User(null, name));
 	}
 
 	@RequestMapping(method=RequestMethod.GET, value="/hello/list",

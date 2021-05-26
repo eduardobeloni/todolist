@@ -2,32 +2,29 @@ package todolist.hello;
 
 import java.util.*;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class HelloService {
 
-	private Map<Integer, String> users = new Hashtable<>();
+	@Autowired
+	private UserRepository userRepo;
 
 	public List<User> getAllUsers() {
-		List<User> data = new ArrayList<>();
-
-		for (Integer k : this.users.keySet() ) {
-			data.add(new User(k, this.users.get(k)));
-		}
-
-		return data;
+		List<User> users = new ArrayList<>();
+		userRepo.findAll().forEach(users::add);
+		return users;
 	}
 
 	public void addUser(User user) {
-		if (!this.users.containsKey(user.getId())) {
-			this.users.put(user.getId(), user.getName());
-		}
+		userRepo.save(user);
 	}
 
 	public User getUser(Integer id) {
-		if (this.users.containsKey(id)) {
-			return new User(id, this.users.get(id));
+		Optional<User> userOpt = userRepo.findById(id);
+		if (userOpt.isPresent()) {
+			return userOpt.get();
 		}
 
 		return new User();
