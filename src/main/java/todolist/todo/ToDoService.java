@@ -20,7 +20,7 @@ public class ToDoService {
 	
 	public ToDo getToDo(Integer id) {
 		Optional<ToDo> opt = this.toDoRepository.findById(id);
-		if (!opt.isEmpty())
+		if (opt.isPresent())
 			return opt.get();
 
 		return new ToDo();
